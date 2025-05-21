@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-slate-100 text-foreground;
+  }
+  
+  main {
+    @apply py-8;
+  }
+}
+
+@layer components {
+  .quote-card {
+    @apply relative overflow-hidden bg-white shadow-md border-l-4 border-primary transition-all duration-300 hover:border-l-8 hover:shadow-lg;
+  }
+  
+  .quote-card::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-primary/30;
+  }
+  
+  .quote-card::after {
+    content: "";
+    @apply absolute -bottom-12 -right-12 w-24 h-24 rounded-full bg-primary/5;
+  }
+  
+  .quote-card blockquote {
+    @apply relative;
+  }
+  
+  .quote-card blockquote::before {
+    content: '\201C';
+    @apply absolute -top-6 -left-2 text-8xl font-serif text-primary/10;
+  }
+  
+  /* Author card styling */
+  .author-link:hover .author-name {
+    @apply text-primary transition-colors duration-200;
+  }
+  
+  /* Category card styling */
+  .category-card {
+    @apply relative overflow-hidden bg-white shadow-md hover:shadow-lg transition-all duration-300 border-t-4 border-primary;
+  }
+  
+  .category-card::before {
+    content: "";
+    @apply absolute top-0 right-0 w-full h-1 bg-gradient-to-l from-primary to-primary/30;
+  }
+}
