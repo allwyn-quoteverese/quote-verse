@@ -88,11 +88,11 @@ export default function SocialShareMenu({
           <Button
             variant="ghost"
             size="icon"
-            className={`text-slate-400 hover:text-primary ${className}`}
+            className={`h-8 w-8 text-slate-400 hover:text-primary transition-colors ${className}`}
             title="Share quote"
             onClick={handleShare}
           >
-            <Share2 className="h-5 w-5" />
+            <Share2 className="h-4 w-4" />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end" className="w-56">

@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Link } from "wouter";
 import { type QuoteWithAuthor } from "@shared/schema";
 import SocialShareMenu from "./SocialShareMenu";
+import QuoteImageGenerator from "./QuoteImageGenerator";
 
 interface QuoteCardProps {
   quote: QuoteWithAuthor;
@@ -14,6 +15,7 @@ interface QuoteCardProps {
 export default function QuoteCard({ quote }: QuoteCardProps) {
   const { toast } = useToast();
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showImageGenerator, setShowImageGenerator] = useState(false);
 
   const toggleFavorite = () => {
     setIsFavorite(!isFavorite);
@@ -35,33 +37,32 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
         <blockquote className="mb-4">
           <p className="text-lg leading-relaxed font-medium">{quote.text}</p>
         </blockquote>
-        <div className="flex justify-between items-center">
-          <div>
-            <Link href={`/authors/${quote.author.id}`}>
-              <span className="font-medium text-primary hover:text-primary/80 transition-colors cursor-pointer">
-                {quote.author.name}
-              </span>
-            </Link>
+        <div className="flex justify-between items-start">
+          <div className="flex-1 pr-4">
+            <span className="font-medium text-slate-800">
+              {quote.author.name}
+            </span>
             {quote.author.bio && (
-              <div className="text-sm text-slate-500 truncate max-w-[200px]">
+              <div className="text-sm text-slate-500 truncate max-w-[200px] mt-1">
                 {quote.author.bio}
               </div>
             )}
           </div>
-          <div className="flex space-x-2">
+          <div className="flex items-center space-x-2 flex-shrink-0">
             <Button
               variant="ghost"
               size="icon"
-              className={`text-slate-400 hover:text-primary ${isFavorite ? 'text-primary' : ''}`}
+              className={`h-8 w-8 text-slate-400 hover:text-primary transition-colors ${isFavorite ? 'text-primary' : ''}`}
               title={isFavorite ? "Remove from favorites" : "Add to favorites"}
               onClick={toggleFavorite}
             >
-              <Heart className={`h-5 w-5 ${isFavorite ? 'fill-primary' : ''}`} />
+              <Heart className={`h-4 w-4 ${isFavorite ? 'fill-primary' : ''}`} />
             </Button>
             <SocialShareMenu 
               quote={quote.text}
               author={quote.author.name}
               quoteId={quote.id}
+              variant="icon"
             />
           </div>
         </div>
@@ -80,6 +81,26 @@ export default function QuoteCard({ quote }: QuoteCardProps) {
               </Link>
             ))}
           </div>
+        )}
+        
+        {/* Generate Image Button */}
+        <div className="mt-4 pt-4 border-t border-slate-100">
+          <Button
+            variant={showImageGenerator ? "default" : "default"}
+            size="sm"
+            className="w-full bg-primary text-white hover:bg-primary/90 transition-all duration-200"
+            onClick={() => setShowImageGenerator(!showImageGenerator)}
+          >
+            {showImageGenerator ? 'Hide Image Generator' : 'Generate Quote Image'}
+          </Button>
+        </div>
+        
+        {/* Image Generator */}
+        {showImageGenerator && (
+          <QuoteImageGenerator 
+            quote={quote.text}
+            author={quote.author.name}
+          />
         )}
       </CardContent>
     </Card>

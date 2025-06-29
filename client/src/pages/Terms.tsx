@@ -112,7 +112,7 @@ export default function Terms() {
             AllwynQuotes.com respects the intellectual property rights of others and complies with the Digital Millennium Copyright Act (DMCA). If you believe that material on our website infringes your copyright, you can request removal by following the procedure below:
           </p>
           <p>
-            Send a written notice to dmca@allwynquotes.com with the following information:
+            Send a written notice to contact@allwynquotes.com with the following information:
           </p>
           <ol className="list-decimal ml-6 mb-4">
             <li>Your physical or electronic signature;</li>
@@ -153,7 +153,7 @@ export default function Terms() {
             If you have any questions about these Terms, please contact us:
           </p>
           <ul className="list-disc ml-6 mb-4">
-            <li>By email: terms@allwynquotes.com</li>
+            <li>By email: contact@allwynquotes.com</li>
             <li>By visiting the contact page on our website: <Link href="/contact"><span className="text-primary hover:underline">Contact Us</span></Link></li>
           </ul>
         </section>

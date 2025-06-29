@@ -5,7 +5,6 @@ import { Toaster } from "@/components/ui/toaster";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import Categories from "@/pages/Categories";
-import Authors from "@/pages/Authors";
 import Search from "@/pages/Search";
 import QuoteSingle from "@/pages/QuoteSingle";
 import Privacy from "@/pages/Privacy";
@@ -20,8 +19,6 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/categories" component={Categories} />
         <Route path="/categories/:slug" component={Categories} />
-        <Route path="/authors" component={Authors} />
-        <Route path="/authors/:id" component={Authors} />
         <Route path="/quotes/:id" component={QuoteSingle} />
         <Route path="/search" component={Search} />
         <Route path="/privacy" component={Privacy} />

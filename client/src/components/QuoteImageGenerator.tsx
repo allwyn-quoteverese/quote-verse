@@ -130,22 +130,42 @@ export default function QuoteImageGenerator({ quote, author }: QuoteImageGenerat
       const response = await fetch(quoteImage);
       const blob = await response.blob();
       
-      if (navigator.share) {
-        await navigator.share({
-          title: `Quote by ${author}`,
-          text: `"${quote}" - ${author}`,
-          files: [new File([blob], 'quote.png', { type: 'image/png' })],
-        });
-      } else {
+      // Try native sharing first
+      if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'quote.png', { type: 'image/png' })] })) {
+        try {
+          await navigator.share({
+            title: `Quote by ${author}`,
+            text: `"${quote}" - ${author}`,
+            files: [new File([blob], 'quote.png', { type: 'image/png' })],
+          });
+          return;
+        } catch (shareError) {
+          // Fall through to clipboard copy
+        }
+      }
+      
+      // Fallback: Copy image to clipboard
+      try {
+        await navigator.clipboard.write([
+          new ClipboardItem({
+            'image/png': blob
+          })
+        ]);
         toast({
-          title: "Sharing not supported",
-          description: "Your browser doesn't support direct sharing. Please download and share manually.",
+          title: "Image copied to clipboard",
+          description: "The quote image has been copied. You can now paste it anywhere to share.",
+        });
+      } catch (clipboardError) {
+        // Final fallback: Show instructions
+        toast({
+          title: "Download to share",
+          description: "Click Download to save the image, then share it manually from your device.",
         });
       }
     } catch (error) {
       toast({
-        title: "Error sharing",
-        description: "Failed to share quote image",
+        title: "Error preparing image",
+        description: "Please try downloading the image instead.",
         variant: "destructive",
       });
     }

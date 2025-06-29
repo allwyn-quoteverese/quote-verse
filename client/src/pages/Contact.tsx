@@ -75,7 +75,7 @@ export default function Contact() {
             <CardContent>
               <p className="mb-4">Have a question, suggestion, or just want to say hello? We'd love to hear from you!</p>
               <ul className="space-y-2">
-                <li><strong>Email:</strong> info@allwynquotes.com</li>
+                <li><strong>Email:</strong> contact@allwynquotes.com</li>
                 <li><strong>Hours:</strong> Monday-Friday, 9AM-5PM EST</li>
                 <li><strong>Address:</strong> 123 Quote Street, Suite 456, Inspiration City, IC 98765</li>
               </ul>
@@ -129,10 +129,10 @@ export default function Contact() {
               <li>A statement that the information in your notice is accurate and that you are the copyright owner or authorized to act on behalf of the owner</li>
             </ul>
             <p className="mb-4">
-              <strong>For DMCA notices, please email:</strong> dmca@allwynquotes.com
+              <strong>For DMCA notices, please email:</strong> contact@allwynquotes.com
             </p>
             <p>
-              <strong>For general copyright concerns:</strong> copyright@allwynquotes.com
+              <strong>For general copyright concerns:</strong> contact@allwynquotes.com
             </p>
           </CardContent>
         </Card>

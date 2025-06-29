@@ -41,7 +41,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-md sticky top-0 z-10">
+    <header className="bg-white shadow-lg sticky top-0 z-[100] border-b border-slate-200">
       <div className="w-full bg-slate-800 py-1">
         <div className="container mx-auto px-4">
           <p className="text-xs text-white text-right">An <span className="text-red-600">Allwyn Group</span> Initiative</p>
@@ -91,13 +91,7 @@ export default function Header() {
                 </span>
               </Link>
             </li>
-            <li className="mb-2 md:mb-0 md:mr-6">
-              <Link href="/authors">
-                <span className={`${location.startsWith("/authors") ? "text-primary font-medium" : "text-slate-600"} hover:text-primary-600 cursor-pointer`}>
-                  Authors
-                </span>
-              </Link>
-            </li>
+
             <li>
               <Button 
                 variant="default" 

@@ -124,11 +124,9 @@ export default function QuoteSingle() {
               <div className="border-t border-gray-200 pt-4 mt-4">
                 <div className="flex justify-between items-center">
                   <div>
-                    <Link href={`/authors/${quote.author.id}`}>
-                      <span className="text-xl font-semibold text-primary hover:text-primary/80 transition-colors cursor-pointer">
-                        — {quote.author.name}
-                      </span>
-                    </Link>
+                    <span className="text-xl font-semibold text-slate-800">
+                      — {quote.author.name}
+                    </span>
                     
                     {quote.author.bio && (
                       <p className="text-gray-600 mt-2">{quote.author.bio}</p>

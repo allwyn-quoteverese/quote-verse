@@ -7,7 +7,6 @@ import { Input } from "@/components/ui/input";
 import QuoteCard from "@/components/QuoteCard";
 import RandomQuoteWidget from "@/components/RandomQuoteWidget";
 import CategoryFilter from "@/components/CategoryFilter";
-import AuthorList from "@/components/AuthorList";
 import TagsCloud from "@/components/TagsCloud";
 import PaginationControls from "@/components/PaginationControls";
 import { Link, useLocation } from "wouter";
@@ -193,9 +192,6 @@ export default function Home() {
           <div className="w-full md:w-1/3">
             {/* Random Quote Widget */}
             <RandomQuoteWidget />
-
-            {/* Popular Authors */}
-            <AuthorList />
 
             {/* Tags Cloud */}
             <TagsCloud />

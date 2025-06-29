@@ -146,7 +146,7 @@ export default function Privacy() {
             If you have any questions about this Privacy Policy, please contact us:
           </p>
           <ul className="list-disc ml-6 mb-4">
-            <li>By email: privacy@allwynquotes.com</li>
+            <li>By email: contact@allwynquotes.com</li>
             <li>By visiting the contact page on our website: <Link href="/contact"><span className="text-primary hover:underline">Contact Us</span></Link></li>
           </ul>
         </section>
